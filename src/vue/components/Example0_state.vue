@@ -14,8 +14,8 @@ export default {
 </script>
 
 <template>
-  <section data-name="Example0_state">
-    <h1>{{count}}</h1>
-    <button class="btn btn-primary" @click="atClick">addCount</button>
-  </section>
+  <h1>{{count}}</h1>
+  <button class="btn" @click="atClick">addCount</button>
+  <button class="btn" @click="atClick()">addCount</button>
+  <button class="btn" @click="count += 1">addCount</button>
 </template>

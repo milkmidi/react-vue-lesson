@@ -4,11 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>react vue</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-jsx.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism.min.css">
   <link rel="stylesheet" href="./src/assets/style.css">
 </head>
 <body>
   <div class="container-fluid">
+    <div class="row pt-3">
+      <div class="col-2">
+        <div class="w-100 btn btn-info example-btn">example0 state</div>
+      </div>
+      <div class="col-2">
+        <div class="w-100 btn btn-info example-btn">example1 props</div>
+      </div>
+    </div>
     <div class="row">
       <div class="col-6">
         <div id="root"></div>
@@ -18,6 +29,17 @@
       </div>
     </div>
   </div>
+  <script>
+    document.querySelectorAll('.example-btn').forEach((ele, index) => {
+      ele.addEventListener('click', () => {
+        window.location.hash = "#" + index;
+        window.dispatchEvent(new CustomEvent('changeExample', { detail:index }));
+      });
+    });
+    if (window.location.hash) {
+      
+    }
+  </script>
   <script type="module" src="/src/react/main.jsx"></script>
   <script type="module" src="/src/vue/main.js"></script>
 </body>

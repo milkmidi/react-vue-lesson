@@ -1,5 +1,4 @@
 <script>
-
 import { ref } from 'vue';
 
 export default {
@@ -17,8 +16,6 @@ export default {
 </script>
 
 <template>
-  <section data-name="Example0_state composition">
-    <h1>{{count}}</h1>
-    <button class="btn btn-primary" @click="atClick">addCount</button>
-  </section>
+  <h1>{{count}}</h1>
+  <button class="btn" @click="atClick">addCount</button>
 </template>

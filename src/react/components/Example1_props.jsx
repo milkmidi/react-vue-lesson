@@ -6,8 +6,8 @@ export default function Example1(props) {
     ...fields
   } = props;
   return (
-    <section data-name="Example1_props" {...fields}>
+    <div data-name="Example1_props" {...fields}>
       <h1>{name}</h1>
-    </section>
+    </div>
   )
 };

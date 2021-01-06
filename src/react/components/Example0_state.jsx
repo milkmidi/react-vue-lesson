@@ -6,11 +6,11 @@ export default function Example() {
     setCount(count + 1);
   }
   return (
-    <section data-name="Example0_state">
+    <div>
       <h1>{count}</h1>
-      <button
-        className="btn btn-primary"
-        onClick={atClick}>addCount</button>
-    </section>
+      <button className="btn" onClick={atClick}>addCount</button>
+      <button className="btn" onClick={()=> atClick()}>addCount</button>
+      <button className="btn" onClick={()=> setCount(count + 1)}>addCount</button>
+    </div>
   )
 };

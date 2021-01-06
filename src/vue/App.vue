@@ -1,13 +1,36 @@
 <script>
+import { onMounted, onBeforeUnmount, ref } from 'vue';
+import PrismCode from './components/PrismCode';
+import * as Syntax from './components/.syntax';
+
 import Example0 from './components/Example0_state.vue';
 import Example0Composition from './components/Example0_state_composition.vue';
 import Example1 from './components/Example1_props.vue';
+
 
 export default {
   components: {
     Example0,
     Example0Composition,
     Example1,
+    PrismCode,
+  },
+  setup(){
+    const exampleIdx = ref(0);
+
+    const handler = ({detail}) => {
+      exampleIdx.value = detail;
+    }
+    onMounted(() => {
+      window.addEventListener('changeExample', handler);
+    })
+    onBeforeUnmount(() => {
+      window.removeEventListener('changeExample', handler);
+    });
+    return {
+      exampleIdx,
+      Syntax,
+    }
   }
 }
 </script>
@@ -16,10 +39,22 @@ export default {
 <div class="vue-app">
   <div class="text-center">
     <img class="logo" src="../assets/vue.png" />
+    <h1>Example {{exampleIdx}}</h1>
   </div>
-  <Example0 />
-  <Example0Composition />
-  <Example1 name="milkmidi" data-value="9527" />
+  <section data-name="State" v-if="exampleIdx === 0">
+    <Example0 />
+    <PrismCode :code="Syntax.Example0_state" />
+  </section>
+
+  <section data-name="State Composition" v-if="exampleIdx === 0">
+    <Example0Composition />
+    <PrismCode :code="Syntax.Example0_state_composition" />
+  </section>
+
+  <section data-name="Props Composition" v-if="exampleIdx === 1">
+    <Example1 name="milkmidi" data-value="9527" />
+    <PrismCode :code="Syntax.Example1_props" />
+  </section>
 </div>
 </template>
 
