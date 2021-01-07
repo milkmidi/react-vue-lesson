@@ -4,7 +4,6 @@ module.exports = {
     es6: true,
     node: true,
   },
-  parser: 'babel-eslint',
   parserOptions: {
     parser: 'babel-eslint',
     ecmaFeatures: {
@@ -32,7 +31,7 @@ module.exports = {
         ignore: ['.syntax$'],
       },
     ],
-    /* 'import/extensions': [
+    'import/extensions': [
       0,
       'ignorePackages',
       {
@@ -43,7 +42,7 @@ module.exports = {
         ts: 'never',
         tsx: 'never',
       },
-    ], */
+    ],
     'react/button-has-type': 0,
     'react/destructuring-assignment': 0,
     'react/jsx-filename-extension': 0,
@@ -55,6 +54,7 @@ module.exports = {
     'react/prop-types': 0,
     'react/react-in-jsx-scope': 'off',
     'react/state-in-constructor': 0,
+    'react/jsx-closing-tag-location': 0,
     'vue/max-attributes-per-line': 0,
     'vue/singleline-html-element-content-newline': 0,
   },

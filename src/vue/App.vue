@@ -15,7 +15,7 @@ export default {
     PrismCode,
   },
   setup() {
-    const exampleIdx = ref(0);
+    const exampleIdx = ref(window.currentIndex || 0);
 
     const handler = ({ detail }) => {
       exampleIdx.value = detail;
@@ -37,36 +37,20 @@ export default {
 <template>
   <div class="vue-app">
     <div class="text-center">
-      <img
-        class="logo"
-        src="../assets/vue.png"
-      >
-      <h1>Example {{ exampleIdx }}</h1>
+      <img class="logo" src="../assets/vue.png">
     </div>
-    <section
-      v-if="exampleIdx === 0"
-      data-name="State"
-    >
+    <section v-if="exampleIdx === 0">
       <Example0 />
       <PrismCode :code="Syntax.Example0_state" />
     </section>
 
-    <section
-      v-if="exampleIdx === 0"
-      data-name="State Composition"
-    >
+    <section v-if="exampleIdx === 0" data-name="Composition API">
       <Example0Composition />
       <PrismCode :code="Syntax.Example0_state_composition" />
     </section>
 
-    <section
-      v-if="exampleIdx === 1"
-      data-name="Props Composition"
-    >
-      <Example1
-        name="milkmidi"
-        data-value="9527"
-      />
+    <section v-if="exampleIdx === 1">
+      <Example1 name="milkmidi" data-value="9527" />
       <PrismCode :code="Syntax.Example1_props" />
     </section>
   </div>

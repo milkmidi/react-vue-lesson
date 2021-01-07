@@ -8,18 +8,24 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-jsx.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./src/assets/style.css">
 </head>
 <body>
-  <div class="container-fluid">
-    <div class="row pt-3">
-      <div class="col-2">
-        <div class="w-100 btn btn-info example-btn">example0 state</div>
-      </div>
-      <div class="col-2">
-        <div class="w-100 btn btn-info example-btn">example1 props</div>
+  <nav>
+    <div class="container-fluid">
+      <div class="row py-3">
+        <div class="col-2">
+          <div class="w-100 btn btn-info example-btn">0 state</div>
+        </div>
+        <div class="col-2">
+          <div class="w-100 btn btn-info example-btn">1 props</div>
+        </div>
       </div>
     </div>
+  </nav>
+  <div class="container-fluid">
     <div class="row">
       <div class="col-6">
         <div id="root"></div>
@@ -37,7 +43,8 @@
       });
     });
     if (window.location.hash) {
-      
+      const index = +window.location.hash.split('')[1];
+      window.currentIndex = index;
     }
   </script>
   <script type="module" src="/src/react/main.jsx"></script>

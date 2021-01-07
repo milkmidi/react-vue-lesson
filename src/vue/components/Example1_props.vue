@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-  <div data-name="Example1_props">
+  <div>
     <h1>{{ name }}</h1>
   </div>
 </template>

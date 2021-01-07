@@ -14,8 +14,8 @@ export default {
 </script>
 
 <template>
-  <h1>{{ count }}</h1>
-  <button class="btn" @click="atClick">addCount</button>
-  <button class="btn" @click="atClick()">addCount</button>
-  <button class="btn" @click="count += 1">addCount</button>
+  <h1>count:{{ count }}</h1>
+  <button class="btn" @click="atClick">addCount1</button>
+  <button class="btn" @click="atClick()">addCount2</button>
+  <button class="btn" @click="count += 1">addCount3</button>
 </template>
