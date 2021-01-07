@@ -27,7 +27,11 @@ function App() {
       {
         exampleIdx === 0 && (
           <section>
-            <h6>React 使用 setState 來宣告</h6>
+            <h6>
+              <p>React 使用 useState 來宣告，會回傳 Array</p>
+              <p>const [count, setCount] = useState(0);</p>
+              <p>更新值需使用 setCount(新的值), 直接寫 count = 100; 並不會重新 render</p>
+            </h6>
             <hr />
             <Example0 />
             <PrismCode code={Syntax.Example0_state} />

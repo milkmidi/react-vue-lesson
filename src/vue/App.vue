@@ -40,11 +40,19 @@ export default {
       <img class="logo" src="../assets/vue.png">
     </div>
     <section v-if="exampleIdx === 0">
+      <h6>
+        <p>使用 data, 並回傳 Object</p>
+        <p>要更新值就直接寫 this.xxx = 新值, vue 會自動重新 render</p>
+      </h6>
       <Example0 />
       <PrismCode :code="Syntax.Example0_state" />
     </section>
 
     <section v-if="exampleIdx === 0" data-name="Composition API">
+      <h6>
+        <p>Vue3 新的 Composition API</p>
+        <p>使用 ref 來宣告</p>
+      </h6>
       <Example0Composition />
       <PrismCode :code="Syntax.Example0_state_composition" />
     </section>

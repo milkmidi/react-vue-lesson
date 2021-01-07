@@ -5,6 +5,9 @@ section{
   border-radius: 8px;
   position: relative;
 }
+section[data-name] {
+  padding: 2.4rem 1rem 1rem;
+}
 section[data-name]::before {
   font-family: 'Roboto', sans-serif;
   z-index: 1;
@@ -51,11 +54,11 @@ section section section::before{
   margin-left: 5px;
 }
 .react-app .btn{
-  background:#2980b9;
-  color: white;
+  background:#61dafb;
+  color: black;
 }
 .vue-app .btn {
-  background: #27ae60;
+  background: #4fc08d;
   color: white;
 }
 nav {
