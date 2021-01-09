@@ -6,16 +6,19 @@ import * as Syntax from './components/.syntax';
 import Example0 from './components/Example0_state.vue';
 import Example0Composition from './components/Example0_state_composition.vue';
 import Example1 from './components/Example1_props.vue';
+import Example2 from './components/Example2_lifecycle.vue';
 
 export default {
   components: {
     Example0,
     Example0Composition,
     Example1,
+    Example2,
     PrismCode,
   },
   setup() {
     const exampleIdx = ref(window.currentIndex || 0);
+    const show = ref(true);
 
     const handler = ({ detail }) => {
       exampleIdx.value = detail;
@@ -26,9 +29,11 @@ export default {
     onBeforeUnmount(() => {
       window.removeEventListener('changeExample', handler);
     });
+
     return {
       exampleIdx,
       Syntax,
+      show,
     };
   },
 };
@@ -65,6 +70,16 @@ export default {
       </h6>
       <Example1 name="milkmidi" :count="9527" />
       <PrismCode :code="Syntax.Example1_props" />
+    </section>
+
+    <section v-if="exampleIdx === 2">
+      <h6>
+        <p>mounted, unmounted</p>
+      </h6>
+      <button class="btn" @click="show = !show;">toggleShow</button>
+      <hr>
+      <Example2 v-if="show" />
+      <PrismCode :code="Syntax.Example2_lifecycle" />
     </section>
   </div>
 </template>

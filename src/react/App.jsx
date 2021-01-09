@@ -6,9 +6,11 @@ import * as Syntax from './components/.syntax';
 
 import Example0 from './components/Example0_state';
 import Example1 from './components/Example1_props';
+import Example2 from './components/Example2_lifecycle';
 
 function App() {
   const [exampleIdx, setExampleIdx] = useState(window.currentIndex || 0);
+  const [show, setShow] = useState(true);
   React.useEffect(() => {
     const handler = ({ detail }) => {
       setExampleIdx(detail);
@@ -45,6 +47,19 @@ function App() {
             <hr />
             <Example1 name="milkmidi" data-value="9527" />
             <PrismCode code={Syntax.Example1_props} />
+          </section>
+        )
+      }
+      {
+        exampleIdx === 2 && (
+          <section>
+            <h6>React 使用 useEffect</h6>
+            <button className="btn" onClick={() => setShow(!show)}>toggle show</button>
+            <hr />
+            {
+              show && <Example2 />
+            }
+            <PrismCode code={Syntax.Example2_lifecycle} />
           </section>
         )
       }
