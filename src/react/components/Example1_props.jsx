@@ -7,7 +7,7 @@ export default function Example1(props) {
   const { name } = props;
   return (
     <div>
-      <h1>{name}</h1>
+      <h1>props.name:{name}</h1>
     </div>
   );
 }

@@ -43,6 +43,7 @@ export default {
       <h6>
         <p>使用 data, 並回傳 Object</p>
         <p>要更新值就直接寫 this.xxx = 新值, vue 會自動重新 render</p>
+        <p>template 偵聽函式可以直接寫參數 atClick(5)</p>
       </h6>
       <Example0 />
       <PrismCode :code="Syntax.Example0_state" />
@@ -51,14 +52,18 @@ export default {
     <section v-if="exampleIdx === 0" data-name="Composition API">
       <h6>
         <p>Vue3 新的 Composition API</p>
-        <p>使用 ref 來宣告</p>
+        <p>使用 ref 或 reactive 來宣告變數</p>
       </h6>
       <Example0Composition />
       <PrismCode :code="Syntax.Example0_state_composition" />
     </section>
 
     <section v-if="exampleIdx === 1">
-      <Example1 name="milkmidi" data-value="9527" />
+      <h6>
+        <p>props 一定要定義，不然 vue 會讀不到</p>
+        <p>如果傳了該 Component 未定義的 props, 會放到 html 的 attributes</p>
+      </h6>
+      <Example1 name="milkmidi" :count="9527" />
       <PrismCode :code="Syntax.Example1_props" />
     </section>
   </div>

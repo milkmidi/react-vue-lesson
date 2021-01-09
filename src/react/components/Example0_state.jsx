@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 export default function Example() {
   const [count, setCount] = useState(0);
   const atClick = () => {
+    // count = 100; // fail
     setCount(count + 1);
   };
   return (

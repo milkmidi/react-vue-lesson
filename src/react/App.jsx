@@ -41,7 +41,7 @@ function App() {
       {
         exampleIdx === 1 && (
           <section>
-            <h6>React 使用 setState 來宣告</h6>
+            <h6>props 型別可以用 flowjs 或是 typescipe定義</h6>
             <hr />
             <Example1 name="milkmidi" data-value="9527" />
             <PrismCode code={Syntax.Example1_props} />
