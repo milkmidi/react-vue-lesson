@@ -9,6 +9,7 @@ import Example1 from './components/Example1_props';
 import Example2 from './components/Example2_ref';
 import Example3 from './components/Example3_lifecycle';
 import Example4 from './components/Example4_conditional_rendering';
+import Example5 from './components/Example5_lists';
 
 function App() {
   const [exampleIdx, setExampleIdx] = useState(window.currentIndex || 0);
@@ -94,8 +95,19 @@ function App() {
             <h6>{'{ show ? <A /> : <B />}'}</h6>
             <h6>或是使用 css display block/none 切換</h6>
             <h6>React JSX style 需要用 Object 寫法，不能用 string 寫法</h6>
+            <hr />
             <Example4 />
             <PrismCode code={Syntax.Example4_conditional_rendering} />
+          </section>
+        )
+      }
+      {
+        exampleIdx === 5 && (
+          <section>
+            <h6>使用 JS map</h6>
+            <hr />
+            <Example5 />
+            <PrismCode code={Syntax.Example5_lists} />
           </section>
         )
       }

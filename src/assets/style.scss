@@ -72,7 +72,7 @@ section{
   }
 }
 .react-app {
-  .btn{
+  .btn, .box{
     background:$reactColor ;
     color: black;
   }
@@ -81,7 +81,7 @@ section{
   }
 }
 .vue-app {
-  .btn {
+  .btn, .box {
     background: $vueColor ;
     color: white;
   }
@@ -97,6 +97,11 @@ section{
   height: 100%;
   position: fixed;
   z-index: 999;
+  .example-btn {
+    &.is-active {
+      background-color: #138496;
+    }
+  }
   &.is-open {
     .nav__drawer-cover {
       opacity: 1;

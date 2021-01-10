@@ -23,6 +23,7 @@
         <div class="w-100 btn btn-info example-btn">ref</div>
         <div class="w-100 btn btn-info example-btn">lifeCycle</div>
         <div class="w-100 btn btn-info example-btn">Conditional Rendering</div>
+        <div class="w-100 btn btn-info example-btn">Lists</div>
       </div>
     </div>
   </nav>
@@ -38,11 +39,15 @@
   </div>
   <script>
     +(function(){
-      document.querySelectorAll('.example-btn').forEach((ele, index) => {
+      const exampleBTNS = document.querySelectorAll('.example-btn');
+      exampleBTNS.forEach((ele, index) => {
         ele.addEventListener('click', () => {
           window.location.hash = "#" + index;
           toggleNavOpen();
           window.dispatchEvent(new CustomEvent('changeExample', { detail:index }));
+
+          exampleBTNS.forEach((ele) => ele.classList.remove('is-active'));
+          ele.classList.add('is-active');
         });
       });
       let isNavOpen = false;

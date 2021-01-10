@@ -11,6 +11,7 @@ import Example1 from './components/Example1_props.vue';
 import Example2 from './components/Example2_ref.vue';
 import Example3 from './components/Example3_lifecycle.vue';
 import Example4 from './components/Example4_conditional_rendering.vue';
+import Example5 from './components/Example5_lists.vue';
 
 export default {
   components: {
@@ -21,6 +22,7 @@ export default {
     Example2,
     Example3,
     Example4,
+    Example5,
   },
   setup() {
     const exampleIdx = ref(window.currentIndex || 0);
@@ -110,6 +112,16 @@ export default {
       <hr>
       <Example4 />
       <PrismCode :code="Syntax.Example4_conditional_rendering" />
+    </section>
+
+    <section v-if="exampleIdx === 5">
+      <h6>
+        <p>使用 v-for="value in yourList"</p>
+        <p>一次回圈想要產生二個以上的 tag, 可以使用 template tag</p>
+      </h6>
+      <hr>
+      <Example5 />
+      <PrismCode :code="Syntax.Example5_lists" />
     </section>
   </div>
 </template>
