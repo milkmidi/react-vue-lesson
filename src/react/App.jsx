@@ -10,6 +10,7 @@ import Example2 from './components/Example2_ref';
 import Example3 from './components/Example3_lifecycle';
 import Example4 from './components/Example4_conditional_rendering';
 import Example5 from './components/Example5_lists';
+import Example6 from './components/Example6_watch';
 
 function App() {
   const [exampleIdx, setExampleIdx] = useState(window.currentIndex || 0);
@@ -108,6 +109,16 @@ function App() {
             <hr />
             <Example5 />
             <PrismCode code={Syntax.Example5_lists} />
+          </section>
+        )
+      }
+      {
+        exampleIdx === 6 && (
+          <section>
+            <h6>使用 useEffect</h6>
+            <hr />
+            <Example6 />
+            <PrismCode code={Syntax.Example6_watch} />
           </section>
         )
       }

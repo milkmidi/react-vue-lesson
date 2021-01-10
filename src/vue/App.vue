@@ -12,6 +12,7 @@ import Example2 from './components/Example2_ref.vue';
 import Example3 from './components/Example3_lifecycle.vue';
 import Example4 from './components/Example4_conditional_rendering.vue';
 import Example5 from './components/Example5_lists.vue';
+import Example6 from './components/Example6_watch.vue';
 
 export default {
   components: {
@@ -23,6 +24,7 @@ export default {
     Example3,
     Example4,
     Example5,
+    Example6,
   },
   setup() {
     const exampleIdx = ref(window.currentIndex || 0);
@@ -122,6 +124,17 @@ export default {
       <hr>
       <Example5 />
       <PrismCode :code="Syntax.Example5_lists" />
+    </section>
+
+    <section v-if="exampleIdx === 6">
+      <h6>
+        <p>使用 Component watch</p>
+        <p>使用 compositionAPI watch</p>
+        <p>使用 compositionAPI watchEffect</p>
+      </h6>
+      <hr>
+      <Example6 />
+      <PrismCode :code="Syntax.Example6_watch" />
     </section>
   </div>
 </template>
