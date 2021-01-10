@@ -10,25 +10,22 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./src/assets/style.css">
+  <link rel="stylesheet" href="./src/assets/style.scss">
 </head>
 <body>
-  <nav>
-    <div class="container-fluid">
-      <div class="row py-3">
-        <div class="col-2">
-          <div class="w-100 btn btn-info example-btn">0 state</div>
-        </div>
-        <div class="col-2">
-          <div class="w-100 btn btn-info example-btn">1 props</div>
-        </div>
-        <div class="col-2">
-          <div class="w-100 btn btn-info example-btn">2 life cycle</div>
-        </div>
+  <nav class="navigation">
+    <div class="nav__drawer-cover"></div>
+    <div class="nav__drawer-content">
+      <button class="nav__toggle-btn"></button>
+      <div class="d-flex flex-column space-y-2">
+        <div class="w-100 btn btn-info example-btn">state</div>
+        <div class="w-100 btn btn-info example-btn">props</div>
+        <div class="w-100 btn btn-info example-btn">ref</div>
+        <div class="w-100 btn btn-info example-btn">life cycle</div>
       </div>
     </div>
   </nav>
-  <div class="container-fluid">
+  <div class="container-fluid example-container">
     <div class="row">
       <div class="col-6">
         <div id="root"></div>
@@ -39,16 +36,27 @@
     </div>
   </div>
   <script>
-    document.querySelectorAll('.example-btn').forEach((ele, index) => {
-      ele.addEventListener('click', () => {
-        window.location.hash = "#" + index;
-        window.dispatchEvent(new CustomEvent('changeExample', { detail:index }));
+    +(function(){
+      document.querySelectorAll('.example-btn').forEach((ele, index) => {
+        ele.addEventListener('click', () => {
+          window.location.hash = "#" + index;
+          toggleNavOpen();
+          window.dispatchEvent(new CustomEvent('changeExample', { detail:index }));
+        });
       });
-    });
-    if (window.location.hash) {
-      const index = +window.location.hash.split('')[1];
-      window.currentIndex = index;
-    }
+      let isNavOpen = false;
+      let navElement = document.querySelector('.navigation');
+      const toggleNavOpen = () => {
+        isNavOpen = !isNavOpen;
+        navElement.classList.toggle('is-open', isNavOpen);
+      }
+      document.querySelector('.nav__toggle-btn').addEventListener('click', toggleNavOpen);
+      document.querySelector('.nav__drawer-cover').addEventListener('click', toggleNavOpen);
+      if (window.location.hash) {
+        const index = +window.location.hash.split('')[1];
+        window.currentIndex = index;
+      }
+    })();
   </script>
   <script type="module" src="/src/react/main.jsx"></script>
   <script type="module" src="/src/vue/main.js"></script>

@@ -6,7 +6,8 @@ import * as Syntax from './components/.syntax';
 
 import Example0 from './components/Example0_state';
 import Example1 from './components/Example1_props';
-import Example2 from './components/Example2_lifecycle';
+import Example2 from './components/Example2_ref';
+import Example3 from './components/Example3_lifecycle';
 
 function App() {
   const [exampleIdx, setExampleIdx] = useState(window.currentIndex || 0);
@@ -53,13 +54,32 @@ function App() {
       {
         exampleIdx === 2 && (
           <section>
-            <h6>React 使用 useEffect</h6>
-            <button className="btn" onClick={() => setShow(!show)}>toggle show</button>
+            <h6>React 使用 useRef</h6>
             <hr />
             {
               show && <Example2 />
             }
-            <PrismCode code={Syntax.Example2_lifecycle} />
+            <PrismCode code={Syntax.Example2_ref} />
+          </section>
+        )
+      }
+      {
+        exampleIdx === 3 && (
+          <section>
+            <h6>React 使用 useEffect</h6>
+            <div className="switch">
+              <input
+                type="checkbox"
+                checked={show}
+                onChange={({ target }) => setShow(target.checked)}
+              />
+              <span />
+            </div>
+            <hr />
+            {
+              show && <Example3 />
+            }
+            <PrismCode code={Syntax.Example3_lifecycle} />
           </section>
         )
       }

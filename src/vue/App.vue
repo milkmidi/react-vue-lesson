@@ -1,12 +1,15 @@
 <script>
-import { onMounted, onBeforeUnmount, ref } from 'vue';
+import {
+  onMounted, onBeforeUnmount, ref
+} from 'vue';
 import PrismCode from './components/PrismCode';
 import * as Syntax from './components/.syntax';
 
 import Example0 from './components/Example0_state.vue';
 import Example0Composition from './components/Example0_state_composition.vue';
 import Example1 from './components/Example1_props.vue';
-import Example2 from './components/Example2_lifecycle.vue';
+import Example2 from './components/Example2_ref.vue';
+import Example3 from './components/Example3_lifecycle.vue';
 
 export default {
   components: {
@@ -74,12 +77,24 @@ export default {
 
     <section v-if="exampleIdx === 2">
       <h6>
+        <p>Vue 使用 ref, 或是 this.$refs</p>
+      </h6>
+      <hr>
+      <Example2 />
+      <PrismCode :code="Syntax.Example2_ref" />
+    </section>
+
+    <section v-if="exampleIdx === 3">
+      <h6>
         <p>mounted, unmounted</p>
       </h6>
-      <button class="btn" @click="show = !show;">toggleShow</button>
+      <div class="switch">
+        <input v-model="show" type="checkbox">
+        <span />
+      </div>
       <hr>
-      <Example2 v-if="show" />
-      <PrismCode :code="Syntax.Example2_lifecycle" />
+      <Example3 v-if="show" />
+      <PrismCode :code="Syntax.Example3_lifecycle" />
     </section>
   </div>
 </template>
