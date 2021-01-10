@@ -8,6 +8,7 @@ import Example0 from './components/Example0_state';
 import Example1 from './components/Example1_props';
 import Example2 from './components/Example2_ref';
 import Example3 from './components/Example3_lifecycle';
+import Example4 from './components/Example4_conditional_rendering';
 
 function App() {
   const [exampleIdx, setExampleIdx] = useState(window.currentIndex || 0);
@@ -83,6 +84,18 @@ function App() {
               show && <Example3 />
             }
             <PrismCode code={Syntax.Example3_lifecycle} />
+          </section>
+        )
+      }
+      {
+        exampleIdx === 4 && (
+          <section>
+            <h6>{'{ show && <YourComponent />}'}</h6>
+            <h6>{'{ show ? <A /> : <B />}'}</h6>
+            <h6>或是使用 css display block/none 切換</h6>
+            <h6>React JSX style 需要用 Object 寫法，不能用 string 寫法</h6>
+            <Example4 />
+            <PrismCode code={Syntax.Example4_conditional_rendering} />
           </section>
         )
       }

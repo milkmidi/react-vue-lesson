@@ -10,6 +10,7 @@ import Example0Composition from './components/Example0_state_composition.vue';
 import Example1 from './components/Example1_props.vue';
 import Example2 from './components/Example2_ref.vue';
 import Example3 from './components/Example3_lifecycle.vue';
+import Example4 from './components/Example4_conditional_rendering.vue';
 
 export default {
   components: {
@@ -19,6 +20,7 @@ export default {
     Example1,
     Example2,
     Example3,
+    Example4,
   },
   setup() {
     const exampleIdx = ref(window.currentIndex || 0);
@@ -97,6 +99,17 @@ export default {
       <hr>
       <Example3 v-if="show" />
       <PrismCode :code="Syntax.Example3_lifecycle" />
+    </section>
+
+    <section v-if="exampleIdx === 4">
+      <h6>
+        <p>使用 v-if, v-show</p>
+        <p>v-if 會整個 DOM 建立/刪除</p>
+        <p>v-show 是 css display block/none</p>
+      </h6>
+      <hr>
+      <Example4 />
+      <PrismCode :code="Syntax.Example4_conditional_rendering" />
     </section>
   </div>
 </template>
