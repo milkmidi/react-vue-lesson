@@ -55,6 +55,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/state-in-constructor': 0,
     'react/jsx-closing-tag-location': 0,
+    'react/require-default-props': 0,
     'vue/max-attributes-per-line': 0,
     'vue/singleline-html-element-content-newline': 0,
   },

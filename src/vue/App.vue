@@ -13,11 +13,12 @@ import Example3 from './components/Example3_lifecycle.vue';
 
 export default {
   components: {
+    PrismCode,
     Example0,
     Example0Composition,
     Example1,
     Example2,
-    PrismCode,
+    Example3,
   },
   setup() {
     const exampleIdx = ref(window.currentIndex || 0);
@@ -92,6 +93,7 @@ export default {
         <input v-model="show" type="checkbox">
         <span />
       </div>
+
       <hr>
       <Example3 v-if="show" />
       <PrismCode :code="Syntax.Example3_lifecycle" />

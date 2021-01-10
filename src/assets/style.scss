@@ -1,11 +1,16 @@
 $reactColor : #61dafb;
 $vueColor : #4fc08d;
+/*
 :root {
   --react-color: $reactColor;
   --vue-color: $vueColor;
 }
-body {
-  /* background-color: #f5f0ec; */
+*/
+.bg-react {
+  background-color:$reactColor;
+}
+.bg-vue {
+  background-color:$vueColor;
 }
 * {
   outline: none;

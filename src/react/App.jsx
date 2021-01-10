@@ -44,7 +44,10 @@ function App() {
       {
         exampleIdx === 1 && (
           <section>
-            <h6>props 型別可以用 flowjs 或是 typescipe定義</h6>
+            <h6>
+              <p>父組件傳什麼，都會放到 props 裡</p>
+              <p>props 型別可以用 PropTypes 定義<br /> 或是flowjs/typescipe定義</p>
+            </h6>
             <hr />
             <Example1 name="milkmidi" data-value="9527" />
             <PrismCode code={Syntax.Example1_props} />
