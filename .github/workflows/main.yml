@@ -28,7 +28,6 @@ jobs:
         npm install
     - name: npm run build
       run: |
-        npm run gulp m
         npm run build
     - name: Commit files
       run: |
