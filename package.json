@@ -5,6 +5,7 @@
   "scripts": {
     "start": "npm run generate && vite",
     "build": "npm run generate && vite build",
+    "deploy": "git checkout main && git merge dev --no-ff && git push && git checkout dev",
     "generate": "node ./internal/generate"
   },
   "dependencies": {
