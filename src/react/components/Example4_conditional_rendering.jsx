@@ -6,7 +6,7 @@ export default function Example4() {
     setShow(!show);
   };
   return (
-    <div>
+    <div className="example">
       <button className="btn mb-1" onClick={atClick}>switch show:{show.toString()}</button>
       {
         show && (

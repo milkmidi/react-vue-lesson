@@ -4,7 +4,7 @@ export default function Example5() {
   const [lists] = useState(['React', 'vue', 'angular', 'jQuery']);
 
   return (
-    <>
+    <div className="example">
       <ul className="border">
         { lists.map((text) => <li key={text}>{text}</li>) }
       </ul>
@@ -18,6 +18,6 @@ export default function Example5() {
           ))
         }
       </ul>
-    </>
+    </div>
   );
 }

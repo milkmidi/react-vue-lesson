@@ -18,10 +18,13 @@ export default {
 </script>
 
 <template>
-  <h1>count:{{ count }}</h1>
-  <button class="btn" @click="atClick">addCount1</button>
-  <button class="btn" @click="atClick()">addCount2</button>
-  <button class="btn" @click="count += 1">addCount3</button>
-  <!-- 一定要寫 $event -->
-  <button class="btn" @click="atClickWithParameter(5, $event)">atClickWithParameter</button>
+  <div class="example">
+    <h1>count:{{ count }}</h1>
+    <button class="btn" @click="atClick">addCount1</button>
+    <!-- vue 黑魔法，@click="atClick()" 並不是執行 atClick() -->
+    <button class="btn" @click="atClick()">addCount2</button>
+    <button class="btn" @click="count += 1">addCount3</button>
+    <!-- 一定要寫 $event -->
+    <button class="btn" @click="atClickWithParameter(5, $event)">atClickWithParameter</button>
+  </div>
 </template>

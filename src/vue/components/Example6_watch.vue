@@ -57,7 +57,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="example">
     <h1>count 到 5 就會跳 Alert:{{ count }}</h1>
     <h3>name:{{ name }}</h3>
     <button class="btn" @click="count++">addCount</button>

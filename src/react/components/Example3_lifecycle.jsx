@@ -16,8 +16,10 @@ export default function Example2() {
     };
   }, []); // 這裡要填空 Array
   return (
-    <div className="border p-3 bg-react text-white rounded">
-      <h1 ref={domRef}>React, lifecycle</h1>
+    <div className="example">
+      <div className="border p-3 bg-react text-white rounded">
+        <h1 ref={domRef}>React, lifecycle</h1>
+      </div>
     </div>
   );
 }

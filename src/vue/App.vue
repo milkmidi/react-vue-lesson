@@ -13,6 +13,7 @@ import Example3 from './components/Example3_lifecycle.vue';
 import Example4 from './components/Example4_conditional_rendering.vue';
 import Example5 from './components/Example5_lists.vue';
 import Example6 from './components/Example6_watch.vue';
+import Example7 from './components/Example7_computed.vue';
 
 export default {
   components: {
@@ -25,6 +26,7 @@ export default {
     Example4,
     Example5,
     Example6,
+    Example7,
   },
   setup() {
     const exampleIdx = ref(window.currentIndex || 0);
@@ -54,24 +56,32 @@ export default {
     <div class="text-center">
       <img class="logo" src="../assets/vue.png">
     </div>
-    <section v-if="exampleIdx === 0">
-      <h6>
-        <p>使用 data, 並回傳 Object</p>
-        <p>要更新值就直接寫 this.xxx = 新值, vue 會自動重新 render</p>
-        <p>template 偵聽函式可以直接寫參數 atClick(5)</p>
-      </h6>
-      <Example0 />
-      <PrismCode :code="Syntax.Example0_state" />
-    </section>
-
-    <section v-if="exampleIdx === 0" data-name="Composition API">
-      <h6>
-        <p>Vue3 新的 Composition API</p>
-        <p>使用 ref 或 reactive 來宣告變數</p>
-      </h6>
-      <Example0Composition />
-      <PrismCode :code="Syntax.Example0_state_composition" />
-    </section>
+    <template v-if="exampleIdx === 0">
+      <section>
+        <h6>
+          <p>使用 data, 並回傳 Object</p>
+          <p>要更新值就直接寫 this.xxx = 新值, vue 會自動重新 render</p>
+          <p>template 偵聽函式可以直接寫參數 atClick(5)</p>
+          <a
+            target="_blank"
+            href="https://v3.vuejs.org/guide/data-methods.html#data-properties"
+            class="btn btn-link"
+          >Document</a>
+        </h6>
+        <Example0 />
+        <PrismCode :code="Syntax.Example0_state" />
+      </section>
+      <section data-name="Composition API">
+        <h6>
+          <p>Vue3 新的 Composition API</p>
+          <p>使用 ref 或 reactive 來宣告變數</p>
+          <p>Vue.ref 和 React.useRef 有點像，差別在於</p>
+          <p>Vue.ref 更新值會重新 render component, 而 React.useRef 不會</p>
+        </h6>
+        <Example0Composition />
+        <PrismCode :code="Syntax.Example0_state_composition" />
+      </section>
+    </template>
 
     <section v-if="exampleIdx === 1">
       <h6>
@@ -135,6 +145,17 @@ export default {
       <hr>
       <Example6 />
       <PrismCode :code="Syntax.Example6_watch" />
+    </section>
+
+    <section v-if="exampleIdx === 7">
+      <h6>
+        <p>使用 Component watch</p>
+        <p>使用 compositionAPI watch</p>
+        <p>使用 compositionAPI watchEffect</p>
+      </h6>
+      <hr>
+      <Example7 />
+      <PrismCode :code="Syntax.Example7_computed" />
     </section>
   </div>
 </template>

@@ -15,7 +15,7 @@ export default function PrismCode({ code, clearClassName = true }) {
     window.Prism.highlightElement(domRef.current);
   }, []);
   return (
-    <pre className="language-jsx" ref={domRef}>
+    <pre className="language-jsx border" ref={domRef}>
       {
         formatCode
       }

@@ -25,7 +25,7 @@ export default {
       : props.code;
 
     return () => h('pre', {
-      class: 'language-html',
+      class: 'language-html border',
       ref: domRef,
     }, formatCode);
   },

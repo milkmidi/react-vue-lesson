@@ -6,7 +6,7 @@ export default function Example2() {
     domRef.current.focus();
   };
   return (
-    <div>
+    <div className="example">
       <input className="form-control" ref={domRef} type="text" />
       <button className="btn" onClick={atClick}>focusInput</button>
     </div>

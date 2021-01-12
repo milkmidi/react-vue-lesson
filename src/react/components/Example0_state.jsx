@@ -7,7 +7,7 @@ export default function Example() {
     setCount(count + 1);
   };
   return (
-    <div>
+    <div className="example">
       <h1>count:{count}</h1>
       <button className="btn" onClick={atClick}>addCount1</button>
       <button className="btn" onClick={() => atClick()}>addCount2</button>

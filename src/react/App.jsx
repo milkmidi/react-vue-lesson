@@ -6,11 +6,13 @@ import * as Syntax from './components/.syntax';
 
 import Example0 from './components/Example0_state';
 import Example1 from './components/Example1_props';
+import Example1TSX from './components/Example1_props_tsx';
 import Example2 from './components/Example2_ref';
 import Example3 from './components/Example3_lifecycle';
 import Example4 from './components/Example4_conditional_rendering';
 import Example5 from './components/Example5_lists';
 import Example6 from './components/Example6_watch';
+import Example7 from './components/Example7_useMemo';
 
 function App() {
   const [exampleIdx, setExampleIdx] = useState(window.currentIndex || 0);
@@ -34,9 +36,15 @@ function App() {
         exampleIdx === 0 && (
           <section>
             <h6>
-              <p>React 使用 useState 來宣告，會回傳 Array</p>
+              <p>宣告 state 變數，會回傳 Array</p>
               <p>const [count, setCount] = useState(0);</p>
               <p>更新值需使用 setCount(新的值), 直接寫 count = 100; 並不會重新 render</p>
+              <a
+                href="https://reactjs.org/docs/hooks-state.html"
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-link"
+              >Document</a>
             </h6>
             <hr />
             <Example0 />
@@ -46,15 +54,25 @@ function App() {
       }
       {
         exampleIdx === 1 && (
-          <section>
-            <h6>
-              <p>父組件傳什麼，都會放到 props 裡</p>
-              <p>props 型別可以用 PropTypes 定義<br /> 或是flowjs/typescipe定義</p>
-            </h6>
-            <hr />
-            <Example1 name="milkmidi" data-value="9527" />
-            <PrismCode code={Syntax.Example1_props} />
-          </section>
+          <>
+            <section>
+              <div>
+                <h6>
+                  <p>父組件傳什麼，都會放到 props 裡</p>
+                  <p>props 型別可以用 PropTypes 定義</p>
+                </h6>
+              </div>
+              <hr />
+              <Example1 name="milkmidi" data-value="9527" />
+              <PrismCode code={Syntax.Example1_props} />
+            </section>
+            <section>
+              <h6>或是使用 typescript 定義 props</h6>
+              <hr />
+              <Example1TSX name="milkmidi" />
+              <PrismCode code={Syntax.Example1_props_tsx} />
+            </section>
+          </>
         )
       }
       {
@@ -115,10 +133,25 @@ function App() {
       {
         exampleIdx === 6 && (
           <section>
-            <h6>使用 useEffect</h6>
+            <h6>
+              <p>使用 useEffect / useLayoutEffect</p>
+              <p>useEffect 和 useLayoutEffect 使用方法一樣</p>
+              <p>差別在於 useEffect 是 DOM Render 完後才執行</p>
+              <p>useLayoutEffect 是 DOM Render 前執行</p>
+            </h6>
             <hr />
             <Example6 />
             <PrismCode code={Syntax.Example6_watch} />
+          </section>
+        )
+      }
+      {
+        exampleIdx === 7 && (
+          <section>
+            <h6>useMemo, 可以用來 cache 值, 避免重新計算</h6>
+            <hr />
+            <Example7 />
+            <PrismCode code={Syntax.Example7_useMemo} />
           </section>
         )
       }

@@ -24,7 +24,9 @@ export default {
 </script>
 
 <template>
-  <div class="border p-3 bg-vue text-white rounded">
-    <h1 ref="root">Vue, lifecycle</h1>
+  <div class="example">
+    <div class="border p-3 bg-vue text-white rounded">
+      <h1 ref="root">Vue, lifecycle</h1>
+    </div>
   </div>
 </template>
