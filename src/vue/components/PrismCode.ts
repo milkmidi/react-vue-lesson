@@ -1,6 +1,12 @@
+/* eslint-disable no-useless-escape */
 import { h, ref, onMounted } from 'vue';
 
 const CLASS_PATTERN = / class="[a-zA-Z0-9:;\.\s\(\)\-\,]*"/g;
+
+type Props = {
+  code: string;
+  clearClassName: boolean;
+}
 
 export default {
   props: {
@@ -13,16 +19,20 @@ export default {
       default: true,
     }
   },
-  setup(props) {
-    const domRef = ref(null);
+  setup(props:Props) {
+    const {
+      code,
+      clearClassName,
+    } = props;
+    const domRef = ref<HTMLElement>(null);
 
     onMounted(() => {
       window.Prism.highlightElement(domRef.value);
     });
 
-    const formatCode = props.clearClassName
-      ? props.code.replace(CLASS_PATTERN, '')
-      : props.code;
+    const formatCode = clearClassName
+      ? code.replace(CLASS_PATTERN, '')
+      : code;
 
     return () => h('pre', {
       class: 'language-html border',

@@ -17,7 +17,7 @@
     <div class="nav__drawer-cover"></div>
     <div class="nav__drawer-content">
       <button class="nav__toggle-btn"></button>
-      <div class="d-flex flex-column space-y-2">
+      <div class="d-flex flex-column space-y-2 h-100">
         <div class="w-100 btn btn-info example-btn">state / data</div>
         <div class="w-100 btn btn-info example-btn">props</div>
         <div class="w-100 btn btn-info example-btn">ref</div>
@@ -26,6 +26,7 @@
         <div class="w-100 btn btn-info example-btn">Lists</div>
         <div class="w-100 btn btn-info example-btn">watch</div>
         <div class="w-100 btn btn-info example-btn">useMemo / computed</div>
+        <div class="w-100 btn btn-info example-btn mt-auto business-service">工商服務</div>
       </div>
     </div>
   </nav>
@@ -44,9 +45,13 @@
       const exampleBTNS = document.querySelectorAll('.example-btn');
       exampleBTNS.forEach((ele, index) => {
         ele.addEventListener('click', () => {
-          window.location.hash = "#" + index;
+          let value = index;
+          if (ele.classList.contains('business-service')) {
+            value = 9999;
+          }
+          window.location.hash = "#" + value;
           toggleNavOpen();
-          window.dispatchEvent(new CustomEvent('changeExample', { detail:index }));
+          window.dispatchEvent(new CustomEvent('changeExample', { detail: value }));
 
           exampleBTNS.forEach((ele) => ele.classList.remove('is-active'));
           ele.classList.add('is-active');
@@ -61,12 +66,15 @@
       document.querySelector('.nav__toggle-btn').addEventListener('click', toggleNavOpen);
       document.querySelector('.nav__drawer-cover').addEventListener('click', toggleNavOpen);
       if (window.location.hash) {
-        const index = +window.location.hash.split('')[1];
-        window.currentIndex = index;
+        window.currentIndex = +window.location.hash.split('#')[1];
+        console.log('window.currentIndex', window.currentIndex);
       }
+      /* window.addEventListener('hashchange', function() {
+        console.log('The hash has changed!')
+      }, false); */
     })();
   </script>
-  <script type="module" src="/src/react/main.jsx"></script>
-  <script type="module" src="/src/vue/main.js"></script>
+  <script defer type="module" src="/src/react/main.jsx"></script>
+  <script defer type="module" src="/src/vue/main.js"></script>
 </body>
 </html>

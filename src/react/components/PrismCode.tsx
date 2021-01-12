@@ -1,10 +1,14 @@
+/* eslint-disable no-useless-escape */
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const CLASS_PATTERN = / className="[a-zA-Z0-9:;\.\s\(\)\-\,]*"/g;
 
-export default function PrismCode({ code, clearClassName = true }) {
-  const domRef = React.useRef();
+type Props = {
+  code: string;
+  clearClassName? :boolean;
+}
+export default function PrismCode({ code, clearClassName = true }:Props) {
+  const domRef = React.useRef<HTMLElement>();
   const formatCode = React.useMemo(() => {
     if (clearClassName) {
       return code.replace(CLASS_PATTERN, '');
@@ -22,8 +26,3 @@ export default function PrismCode({ code, clearClassName = true }) {
     </pre>
   );
 }
-
-PrismCode.propTypes = {
-  code: PropTypes.string.isRequired,
-  clearClassName: PropTypes.bool,
-};

@@ -13,6 +13,7 @@ import Example4 from './components/Example4_conditional_rendering';
 import Example5 from './components/Example5_lists';
 import Example6 from './components/Example6_watch';
 import Example7 from './components/Example7_useMemo';
+import BusinessService from './components/BusinessService';
 
 function App() {
   const [exampleIdx, setExampleIdx] = useState(window.currentIndex || 0);
@@ -152,6 +153,13 @@ function App() {
             <hr />
             <Example7 />
             <PrismCode code={Syntax.Example7_useMemo} />
+          </section>
+        )
+      }
+      {
+        exampleIdx === 9999 && (
+          <section>
+            <BusinessService />
           </section>
         )
       }

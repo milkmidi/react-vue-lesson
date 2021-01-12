@@ -14,6 +14,7 @@ import Example4 from './components/Example4_conditional_rendering.vue';
 import Example5 from './components/Example5_lists.vue';
 import Example6 from './components/Example6_watch.vue';
 import Example7 from './components/Example7_computed.vue';
+import BusinessService from './components/BusinessService.vue';
 
 export default {
   components: {
@@ -27,6 +28,7 @@ export default {
     Example5,
     Example6,
     Example7,
+    BusinessService,
   },
   setup() {
     const exampleIdx = ref(window.currentIndex || 0);
@@ -109,7 +111,6 @@ export default {
         <input v-model="show" type="checkbox">
         <span />
       </div>
-
       <hr>
       <Example3 v-if="show" />
       <PrismCode :code="Syntax.Example3_lifecycle" />
@@ -156,6 +157,10 @@ export default {
       <hr>
       <Example7 />
       <PrismCode :code="Syntax.Example7_computed" />
+    </section>
+
+    <section v-if="exampleIdx === 9999">
+      <BusinessService />
     </section>
   </div>
 </template>
