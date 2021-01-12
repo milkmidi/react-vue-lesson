@@ -14,6 +14,8 @@ import Example4 from './components/Example4_conditional_rendering.vue';
 import Example5 from './components/Example5_lists.vue';
 import Example6 from './components/Example6_watch.vue';
 import Example7 from './components/Example7_computed.vue';
+import Example8Input from './components/Example8_form_input.vue';
+import Example8Checkbox from './components/Example8_form_checkbox.vue';
 import BusinessService from './components/BusinessService.vue';
 
 export default {
@@ -28,6 +30,8 @@ export default {
     Example5,
     Example6,
     Example7,
+    Example8Input,
+    Example8Checkbox,
     BusinessService,
   },
   setup() {
@@ -158,6 +162,30 @@ export default {
       <Example7 />
       <PrismCode :code="Syntax.Example7_computed" />
     </section>
+
+    <template v-if="exampleIdx === 8">
+      <section>
+        <h6>
+          <p>使用 v-model</p>
+        </h6>
+        <hr>
+        <Example8Input />
+        <PrismCode :code="Syntax.Example8_form_input" />
+      </section>
+      <section>
+        <h6>
+          <p>使用 v-model, vue 會幫你處理掉 Array的部份</p>
+          <a
+            target="_blank"
+            href="https://github.com/vuejs/vue-next/blob/master/packages/runtime-dom/src/directives/vModel.ts#L101-L155"
+            class="btn btn-link"
+          >點我看 github vue 原始碼</a>
+        </h6>
+        <hr>
+        <Example8Checkbox />
+        <PrismCode :code="Syntax.Example8_form_checkbox" />
+      </section>
+    </template>
 
     <section v-if="exampleIdx === 9999">
       <BusinessService />
