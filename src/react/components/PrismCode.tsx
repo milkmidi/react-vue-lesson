@@ -7,7 +7,7 @@ type Props = {
   code: string;
   clearClassName? :boolean;
 }
-export default function PrismCode({ code, clearClassName = true }:Props) {
+function PrismCode({ code, clearClassName = true }:Props) {
   const domRef = React.useRef<HTMLElement>();
   const formatCode = React.useMemo(() => {
     if (clearClassName) {
@@ -17,7 +17,7 @@ export default function PrismCode({ code, clearClassName = true }:Props) {
   }, [code, clearClassName]);
   React.useEffect(() => {
     window.Prism.highlightElement(domRef.current);
-  }, []);
+  }, [formatCode]);
   return (
     <pre className="language-jsx border" ref={domRef}>
       {
@@ -26,3 +26,5 @@ export default function PrismCode({ code, clearClassName = true }:Props) {
     </pre>
   );
 }
+
+export default React.memo(PrismCode);

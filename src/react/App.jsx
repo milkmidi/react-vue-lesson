@@ -3,16 +3,18 @@ import React, { useState } from 'react';
 import logo from '../assets/react-logo.svg';
 import Syntax from './template.json';
 
-import PrismCode from './components/PrismCode';
+import PrismCode from './components/PrismCode.tsx';
 import Example0 from './components/Example0_state';
 import Example1 from './components/Example1_props';
-import Example1TSX from './components/Example1_props_tsx';
+import Example1TSX from './components/Example1_props_tsx.tsx';
 import Example2 from './components/Example2_ref';
 import Example3 from './components/Example3_lifecycle';
 import Example4 from './components/Example4_conditional_rendering';
 import Example5 from './components/Example5_lists';
 import Example6 from './components/Example6_watch';
 import Example7 from './components/Example7_useMemo';
+import Example8Input from './components/Example8_form_input';
+import Example8Checkbox from './components/Example8_form_checkbox';
 import BusinessService from './components/BusinessService';
 
 function App() {
@@ -154,6 +156,23 @@ function App() {
             <Example7 />
             <PrismCode code={Syntax.Example7_useMemo} />
           </section>
+        )
+      }
+      {
+        exampleIdx === 8 && (
+          <>
+            <section>
+              <h6>value + onChange</h6>
+              <hr />
+              <Example8Input />
+              <PrismCode code={Syntax.Example8_form_input} />
+            </section>
+            <section>
+              <hr />
+              <Example8Checkbox />
+              <PrismCode code={Syntax.Example8_form_checkbox} />
+            </section>
+          </>
         )
       }
       {
