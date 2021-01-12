@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>react vue</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-jsx.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-37X83S80DG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-37X83S80DG');
+  </script>
+<script type="module" src="./assets/index.fbf54144.js"></script>
+  <link rel="stylesheet" href="./assets/index.89ce3eb1.css">
+</head>
+<body>
+  <nav class="navigation">
+    <div class="nav__drawer-cover"></div>
+    <div class="nav__drawer-content">
+      <button class="nav__toggle-btn"></button>
+      <div class="d-flex flex-column space-y-2 h-100">
+        <button class="w-100 btn btn-info example-btn">state / data</button>
+        <button class="w-100 btn btn-info example-btn">props</button>
+        <button class="w-100 btn btn-info example-btn">ref</button>
+        <button class="w-100 btn btn-info example-btn">lifeCycle</button>
+        <button class="w-100 btn btn-info example-btn">Conditional Rendering</button>
+        <button class="w-100 btn btn-info example-btn">Lists</button>
+        <button class="w-100 btn btn-info example-btn">watch</button>
+        <button class="w-100 btn btn-info example-btn">useMemo / computed</button>
+        <button class="w-100 btn btn-info example-btn">Form</button>
+        <hr />
+        <button class="w-100 btn btn-info example-btn" disabled>children / slot(Coming Soon)</button>
+        <button class="w-100 btn btn-info example-btn" disabled>TodoList(Coming Soon)</button>
+        <button class="w-100 btn btn-info example-btn" disabled>Render optimize(Coming Soon)</button>
+        <button class="w-100 btn btn-info example-btn" disabled>Redux / vuex(Coming Soon)</button>
+        <button class="w-100 btn btn-info example-btn mt-auto business-service">工商服務</button>
+        <small>v0.1.0</small>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid example-container">
+    <div class="row">
+      <div class="col-6">
+        <div id="root"></div>
+      </div>
+      <div class="col-6">
+        <div id="app"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    +(function(){
+      const exampleBTNS = document.querySelectorAll('.example-btn');
+      exampleBTNS.forEach((ele, index) => {
+        ele.addEventListener('click', () => {
+          let value = index;
+          if (ele.classList.contains('business-service')) {
+            value = 9999;
+          }
+          window.location.hash = "#" + value;
+          toggleNavOpen();
+          window.dispatchEvent(new CustomEvent('changeExample', { detail: value }));
+
+          exampleBTNS.forEach((ele) => ele.classList.remove('is-active'));
+          ele.classList.add('is-active');
+        });
+      });
+      let isNavOpen = false;
+      let navElement = document.querySelector('.navigation');
+      const toggleNavOpen = () => {
+        isNavOpen = !isNavOpen;
+        navElement.classList.toggle('is-open', isNavOpen);
+      }
+      document.querySelector('.nav__toggle-btn').addEventListener('click', toggleNavOpen);
+      document.querySelector('.nav__drawer-cover').addEventListener('click', toggleNavOpen);
+      if (window.location.hash) {
+        window.currentIndex = +window.location.hash.split('#')[1];
+        console.log('window.currentIndex', window.currentIndex);
+      }
+    })();
+  </script>
+  
+  
+</body>
+</html>
