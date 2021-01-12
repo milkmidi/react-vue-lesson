@@ -2,15 +2,17 @@
 export default {
   props: {
     name: {
-      type:String,
+      type: String,
       default: 'defaultValue'
-    }
+    },
   },
 };
 </script>
 
 <template>
-  <section data-name="Example1_props">
-    <h1>{{name}}</h1>
-  </section>
+  <div class="example">
+    <h1>props.name:{{ name }}</h1>
+    <!-- 因為 props 裡沒有定義 count, 就讀不到 -->
+    <h2>notdefined props count: {{ count }}</h2>
+  </div>
 </template>

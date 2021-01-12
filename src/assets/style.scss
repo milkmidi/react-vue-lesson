@@ -1,0 +1,232 @@
+$reactColor : #61dafb;
+$vueColor : #4fc08d;
+/*
+:root {
+  --react-color: $reactColor;
+  --vue-color: $vueColor;
+}
+*/
+.bg-react {
+  background-color:$reactColor;
+}
+.bg-vue {
+  background-color:$vueColor;
+}
+* {
+  outline: none;
+  &:focus {
+    outline: none;
+  }
+}
+button:focus {
+  outline: none;
+}
+section{
+  border: 2px solid #bdc3c7;
+  margin: 10px 0;
+  padding: 1.6rem 1rem 1rem;
+  border-radius: 8px;
+  position: relative;
+  &[data-name] {
+    padding: 2.4rem 1rem 1rem;
+    &::before {
+      font-family: 'Roboto', sans-serif;
+      z-index: 1;
+      content: attr(data-name);
+      pointer-events: none;
+      border-radius: .25rem;
+      padding: 0.2rem 0.75rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: white;
+      background-color:#34495e;
+      font-size: 16px;
+    }
+  }
+  &.style-1::before{
+    background-color: #3498db;
+  }
+  &.style-2::before{
+    background-color: #8e44ad;
+  }
+  section::before{
+    background-color:#27ae60;
+    font-size: 14px;
+    section::before{
+      background-color:#9b59b6;
+    }
+  }
+}
+.logo {
+  width: 100px;
+  height: 100px;
+}
+.group {
+  border: 2px solid #888;
+  padding: 5px;
+}
+.example-container {
+  .btn + .btn {
+    margin-left: 5px;
+  }
+  .example {
+    border: 4px solid #333222;
+    padding: 10px;
+  }
+}
+.btn.btn-link{
+  background-color: transparent !important;
+  text-decoration: underline;
+  color: black !important;
+}
+.react-app {
+  .box--demo {
+    width: 50px;
+    height: 50px;
+  }
+  .btn, .box{
+    background:$reactColor ;
+    color: black;
+  }
+  .switch {
+    --color: #{$reactColor};
+  }
+}
+.vue-app {
+  .btn, .box {
+    background: $vueColor ;
+    color: white;
+  }
+  .switch {
+    --color: #{$vueColor};
+  }
+}
+.space-y-2 > * + *{
+  margin-top: 0.25rem;
+}
+.navigation {
+  width: 0px;
+  height: 100%;
+  position: fixed;
+  z-index: 999;
+  .example-btn {
+    &.is-active {
+      background-color: #138496;
+    }
+  }
+  &.is-open {
+    .nav__drawer-cover {
+      opacity: 1;
+      visibility: visible;
+    }
+    .nav__drawer-content {
+      transform: translateX(0);
+      box-shadow: rgba(0, 0, 0, 0.75) 0px 0px 30px 10px;
+    }
+    .nav__toggle-btn:before {
+      transform: rotate(0);
+    }
+  }
+  .nav__drawer-cover,
+  .nav__drawer-content {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+  }
+  .nav__drawer-cover {
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    z-index: 1;
+    visibility: hidden;
+    width: 100vw;
+    transition: opacity 300ms ease 0s, visibility 300ms ease;
+  }
+  .nav__drawer-content {
+    width: 300px;
+    background-color:white;
+    padding: 40px 20px;
+    z-index: 2;
+    position: relative;
+    transition: transform 300ms ease 0s;
+    transform: translateX(-100%);
+  }
+  .nav__toggle-btn {
+    border: 0;
+    position: absolute;
+    right: -60px;
+    top: 40px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #eee;
+    border: 2px solid black;
+    &:hover{
+      background-color: #ccc;
+    }
+    &:before {
+      content: '';
+      transform: rotate(180deg);
+      transition: all 300ms ease 0.35s;
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+      background-image: url('./icon-arrow-right.svg');
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  --color: black;
+  input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    // z-index: 1;
+    opacity: 0;
+  }
+  span{
+    pointer-events: none;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+    &:before {
+      border-radius: 50%;
+      position: absolute;
+      content: '';
+      width: 26px;
+      height: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+    }
+  }
+  input:checked + span {
+    background-color: var(--color);
+    &:before{
+      transform: translateX(26px);
+    }
+  }
+  input:focus + span{
+    box-shadow: 0 0 1px var(--color);
+  }
+}

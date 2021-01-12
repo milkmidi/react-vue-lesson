@@ -1,13 +1,23 @@
-import React, { useState } from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
+
+/*
+  <Example1 name="我要傳prop" />
+ */
 
 export default function Example1(props) {
   const {
     name,
-    ...fields
+    age = 18,
   } = props;
   return (
-    <section data-name="Example1_props" {...fields}>
-      <h1>{name}</h1>
-    </section>
-  )
+    <div className="example">
+      <h1>props.name:{name}, age:{age}</h1>
+    </div>
+  );
+}
+
+Example1.propTypes = {
+  name: PropTypes.string.isRequired,
+  age: PropTypes.number,
 };

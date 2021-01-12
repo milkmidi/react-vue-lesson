@@ -1,16 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 export default function Example() {
   const [count, setCount] = useState(0);
   const atClick = () => {
+    // count = 100; // fail
     setCount(count + 1);
-  }
+  };
   return (
-    <section data-name="Example0_state">
-      <h1>{count}</h1>
-      <button
-        className="btn btn-primary"
-        onClick={atClick}>addCount</button>
-    </section>
-  )
-};
+    <div className="example">
+      <h1>count:{count}</h1>
+      <button className="btn" onClick={atClick}>addCount1</button>
+      <button className="btn" onClick={() => atClick()}>addCount2</button>
+      <button className="btn" onClick={() => setCount(count + 1)}>addCount3</button>
+    </div>
+  );
+}
