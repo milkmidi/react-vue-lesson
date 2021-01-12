@@ -18,16 +18,22 @@
     <div class="nav__drawer-content">
       <button class="nav__toggle-btn"></button>
       <div class="d-flex flex-column space-y-2 h-100">
-        <div class="w-100 btn btn-info example-btn">state / data</div>
-        <div class="w-100 btn btn-info example-btn">props</div>
-        <div class="w-100 btn btn-info example-btn">ref</div>
-        <div class="w-100 btn btn-info example-btn">lifeCycle</div>
-        <div class="w-100 btn btn-info example-btn">Conditional Rendering</div>
-        <div class="w-100 btn btn-info example-btn">Lists</div>
-        <div class="w-100 btn btn-info example-btn">watch</div>
-        <div class="w-100 btn btn-info example-btn">useMemo / computed</div>
-        <div class="w-100 btn btn-info example-btn">Form</div>
-        <div class="w-100 btn btn-info example-btn mt-auto business-service">工商服務</div>
+        <button class="w-100 btn btn-info example-btn">state / data</button>
+        <button class="w-100 btn btn-info example-btn">props</button>
+        <button class="w-100 btn btn-info example-btn">ref</button>
+        <button class="w-100 btn btn-info example-btn">lifeCycle</button>
+        <button class="w-100 btn btn-info example-btn">Conditional Rendering</button>
+        <button class="w-100 btn btn-info example-btn">Lists</button>
+        <button class="w-100 btn btn-info example-btn">watch</button>
+        <button class="w-100 btn btn-info example-btn">useMemo / computed</button>
+        <button class="w-100 btn btn-info example-btn">Form</button>
+        <hr />
+        <button class="w-100 btn btn-info example-btn" disabled>children / slot(Coming Soon)</button>
+        <button class="w-100 btn btn-info example-btn" disabled>TodoList(Coming Soon)</button>
+        <button class="w-100 btn btn-info example-btn" disabled>Render optimize(Coming Soon)</button>
+        <button class="w-100 btn btn-info example-btn" disabled>Redux / vuex(Coming Soon)</button>
+        <button class="w-100 btn btn-info example-btn mt-auto business-service">工商服務</button>
+        <small>v0.1.0</small>
       </div>
     </div>
   </nav>
@@ -70,9 +76,6 @@
         window.currentIndex = +window.location.hash.split('#')[1];
         console.log('window.currentIndex', window.currentIndex);
       }
-      /* window.addEventListener('hashchange', function() {
-        console.log('The hash has changed!')
-      }, false); */
     })();
   </script>
   <script defer type="module" src="/src/react/main.jsx"></script>

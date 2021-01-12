@@ -2,7 +2,7 @@
 import {
   onMounted, onBeforeUnmount, ref
 } from 'vue';
-import PrismCode from './components/PrismCode';
+import PrismCode from './components/PrismCode.ts';
 import Syntax from './template.json';
 
 import Example0 from './components/Example0_state.vue';
@@ -154,9 +154,7 @@ export default {
 
     <section v-if="exampleIdx === 7">
       <h6>
-        <p>使用 Component watch</p>
-        <p>使用 compositionAPI watch</p>
-        <p>使用 compositionAPI watchEffect</p>
+        <p>computed 可以有 cache 的功能</p>
       </h6>
       <hr>
       <Example7 />
