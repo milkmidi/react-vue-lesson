@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "author": "milkmidi milkmidi@gmail.com",
   "scripts": {
-    "start": "vite",
-    "build": "vite build"
+    "start": "npm run generate && vite",
+    "build": "npm run generate && vite build",
+    "generate": "node ./internal/generate"
   },
   "dependencies": {
     "prop-types": "^15.7.2",

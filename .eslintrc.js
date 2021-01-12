@@ -26,17 +26,17 @@ module.exports = {
     'jsx-a11y/no-noninteractive-element-interactions': 0,
     'no-console': 0,
     'no-param-reassign': ['error', { props: false }],
-    'import/no-unresolved': [
+    /* 'import/no-unresolved': [
       2, {
         ignore: ['.syntax$'],
       },
-    ],
+    ], */
     'import/extensions': [
       0,
       'ignorePackages',
       {
         vue: 'always',
-        syntax: 'ignorePackages',
+        // syntax: 'ignorePackages',
         js: 'never',
         jsx: 'never',
         ts: 'never',

@@ -3,7 +3,7 @@ import {
   onMounted, onBeforeUnmount, ref
 } from 'vue';
 import PrismCode from './components/PrismCode';
-import * as Syntax from './components/.syntax';
+import Syntax from './template.json';
 
 import Example0 from './components/Example0_state.vue';
 import Example0Composition from './components/Example0_state_composition.vue';

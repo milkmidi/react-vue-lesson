@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from 'react';
 import logo from '../assets/react-logo.svg';
-import PrismCode from './components/PrismCode';
-import * as Syntax from './components/.syntax';
+import Syntax from './template.json';
 
+import PrismCode from './components/PrismCode';
 import Example0 from './components/Example0_state';
 import Example1 from './components/Example1_props';
 import Example1TSX from './components/Example1_props_tsx';
