@@ -20,7 +20,4 @@ Promise.resolve()
   .then(() => Promise.all([
     generateSyntaxTemplate('react'),
     generateSyntaxTemplate('vue'),
-  ]))
-  .then(() => {
-    process.exit(0);
-  });
+  ]));
