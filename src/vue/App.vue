@@ -16,6 +16,7 @@ import Example6 from './components/Example6_watch.vue';
 import Example7 from './components/Example7_computed.vue';
 import Example8Input from './components/Example8_form_input.vue';
 import Example8Checkbox from './components/Example8_form_checkbox.vue';
+import Example10 from './components/Example10_provide.vue';
 import BusinessService from './components/BusinessService.vue';
 
 export default {
@@ -32,6 +33,7 @@ export default {
     Example7,
     Example8Input,
     Example8Checkbox,
+    Example10,
     BusinessService,
   },
   setup() {
@@ -182,6 +184,18 @@ export default {
         <hr>
         <Example8Checkbox />
         <PrismCode :code="Syntax.Example8_form_checkbox" />
+      </section>
+    </template>
+
+    <template v-if="exampleIdx === 10">
+      <section>
+        <h6>
+          <p>使用 v-model</p>
+        </h6>
+        <hr>
+        <Example10 />
+        <PrismCode :code="Syntax.Example10_provide" name="Example10_provide.vue" />
+        <PrismCode :code="Syntax.Example10_inject" name="Example10_inject.vue" />
       </section>
     </template>
 

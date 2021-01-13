@@ -15,6 +15,7 @@ import Example6 from './components/Example6_watch';
 import Example7 from './components/Example7_useMemo';
 import Example8Input from './components/Example8_form_input';
 import Example8Checkbox from './components/Example8_form_checkbox';
+import Example10 from './components/Example10_context';
 import BusinessService from './components/BusinessService';
 
 function App() {
@@ -171,6 +172,18 @@ function App() {
               <hr />
               <Example8Checkbox />
               <PrismCode code={Syntax.Example8_form_checkbox} />
+            </section>
+          </>
+        )
+      }
+      {
+        exampleIdx === 10 && (
+          <>
+            <section>
+              <h6>Context</h6>
+              <hr />
+              <Example10 />
+              <PrismCode name="Example10_context" code={Syntax.Example10_context} />
             </section>
           </>
         )

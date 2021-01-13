@@ -4,10 +4,11 @@ import React from 'react';
 const CLASS_PATTERN = / className="[a-zA-Z0-9:;\.\s\(\)\-\,]*"/g;
 
 type Props = {
+  name?: string;
   code: string;
   clearClassName? :boolean;
 }
-function PrismCode({ code, clearClassName = true }:Props) {
+function PrismCode({ name, code, clearClassName = true }:Props) {
   const domRef = React.useRef<HTMLElement>();
   const formatCode = React.useMemo(() => {
     if (clearClassName) {
@@ -19,7 +20,7 @@ function PrismCode({ code, clearClassName = true }:Props) {
     window.Prism.highlightElement(domRef.current);
   }, [formatCode]);
   return (
-    <pre className="language-jsx border" ref={domRef}>
+    <pre className="prism-code language-jsx border" ref={domRef} data-name={name}>
       {
         formatCode
       }

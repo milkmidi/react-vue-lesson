@@ -21,6 +21,31 @@ $vueColor : #4fc08d;
 button:focus {
   outline: none;
 }
+.theme-light {
+  background-color:white;
+  color:black;
+}
+.theme-dark {
+  background-color:#1c1e21;
+  color:white;
+}
+.prism-code {
+  &[data-name] {
+    position: relative;
+    padding-top: 40px;
+    &::before {
+      content: attr(data-name);
+      text-shadow: none;
+      padding: 2px 5px;
+      position: absolute;
+      top:0;
+      left:0;
+      font-size: 18px;
+      color: var(--color);
+      background-color: var(--bg-color);
+    }
+  }
+}
 section{
   border: 2px solid #bdc3c7;
   margin: 10px 0;
@@ -81,6 +106,8 @@ section{
   color: black !important;
 }
 .react-app {
+  --color: black;
+  --bg-color: #{$reactColor};
   .box--demo {
     width: 50px;
     height: 50px;
@@ -89,17 +116,13 @@ section{
     background:$reactColor ;
     color: black;
   }
-  .switch {
-    --color: #{$reactColor};
-  }
 }
 .vue-app {
+  --color: white;
+  --bg-color: #{$vueColor};
   .btn, .box {
     background: $vueColor ;
     color: white;
-  }
-  .switch {
-    --color: #{$vueColor};
   }
 }
 .space-y-2 > * + *{
@@ -186,7 +209,7 @@ section{
   display: inline-block;
   width: 60px;
   height: 34px;
-  --color: black;
+  // --bg-color: black;
   input {
     position: absolute;
     width: 100%;
@@ -221,12 +244,12 @@ section{
     }
   }
   input:checked + span {
-    background-color: var(--color);
+    background-color: var(--bg-color, black);
     &:before{
       transform: translateX(26px);
     }
   }
   input:focus + span{
-    box-shadow: 0 0 1px var(--color);
+    box-shadow: 0 0 1px var(--bg-color, black);
   }
 }

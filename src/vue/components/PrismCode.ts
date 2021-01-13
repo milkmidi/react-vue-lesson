@@ -4,6 +4,7 @@ import { h, ref, onMounted } from 'vue';
 const CLASS_PATTERN = / class="[a-zA-Z0-9:;\.\s\(\)\-\,]*"/g;
 
 type Props = {
+  name?: string;
   code: string;
   clearClassName: boolean;
 }
@@ -17,10 +18,14 @@ export default {
     clearClassName: {
       type: Boolean,
       default: true,
+    },
+    name: {
+      type: String,
     }
   },
   setup(props:Props) {
     const {
+      name,
       code,
       clearClassName,
     } = props;
@@ -35,7 +40,8 @@ export default {
       : code;
 
     return () => h('pre', {
-      class: 'language-html border',
+      class: 'prism-code language-html border',
+      'data-name': name,
       ref: domRef,
     }, formatCode);
   },
