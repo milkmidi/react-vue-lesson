@@ -15,6 +15,7 @@ import Example6 from './components/Example6_watch';
 import Example7 from './components/Example7_useMemo';
 import Example8Input from './components/Example8_form_input';
 import Example8Checkbox from './components/Example8_form_checkbox';
+import Example9 from './components/Example9_children';
 import Example10 from './components/Example10_context';
 import BusinessService from './components/BusinessService';
 
@@ -172,6 +173,19 @@ function App() {
               <hr />
               <Example8Checkbox />
               <PrismCode code={Syntax.Example8_form_checkbox} />
+            </section>
+          </>
+        )
+      }
+      {
+        exampleIdx === 9 && (
+          <>
+            <section>
+              <h6>Children, 只能有一個 children</h6>
+              <h6>想要有多個 children ,只能用 props return JSX.Element</h6>
+              <hr />
+              <Example9 />
+              <PrismCode name="Example10_context" code={Syntax.Example9_children} />
             </section>
           </>
         )

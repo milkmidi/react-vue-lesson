@@ -16,6 +16,7 @@ import Example6 from './components/Example6_watch.vue';
 import Example7 from './components/Example7_computed.vue';
 import Example8Input from './components/Example8_form_input.vue';
 import Example8Checkbox from './components/Example8_form_checkbox.vue';
+import Example9 from './components/Example9_slot.vue';
 import Example10 from './components/Example10_provide.vue';
 import BusinessService from './components/BusinessService.vue';
 
@@ -33,6 +34,7 @@ export default {
     Example7,
     Example8Input,
     Example8Checkbox,
+    Example9,
     Example10,
     BusinessService,
   },
@@ -184,6 +186,20 @@ export default {
         <hr>
         <Example8Checkbox />
         <PrismCode :code="Syntax.Example8_form_checkbox" />
+      </section>
+    </template>
+
+    <template v-if="exampleIdx === 9">
+      <section>
+        <h6>
+          <p>使用 slot</p>
+          <p>可以傳多組 slot</p>
+        </h6>
+        <hr>
+        <Example9 />
+        <PrismCode :code="Syntax.Example9_slot" name="Example9_slot.vue" />
+        <PrismCode :code="Syntax.Example9_slot_1" name="Example9_slot_1.vue" />
+        <PrismCode :code="Syntax.Example9_slot_scope" name="Example9_slot_scope.vue" />
       </section>
     </template>
 
